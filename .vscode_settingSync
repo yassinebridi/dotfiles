@@ -1,0 +1,64 @@
+CODE SETTINGS SYNC UPLOAD SUMMARY
+Version: 3.2.9
+--------------------
+GitHub Token: 6042b02b682fa3676506409c1499d2be03bda088
+GitHub Gist: 71b29bd4cbb9774b6f054716199f3d3c
+GitHub Gist Type: Secret
+
+Restarting Visual Studio Code may be required to apply color and file icon theme.
+--------------------
+Files Uploaded:
+  extensions.json > extensions.json
+  keybindings.json > keybindings.json
+  settings.json > settings.json
+
+Extensions Ignored:
+  No extensions ignored.
+
+Extensions Removed:
+  No extensions removed.
+
+Extensions Added:
+  auto-close-tag v0.5.6
+  auto-complete-tag v0.1.0
+  auto-rename-tag v0.0.15
+  code-settings-sync v3.2.9
+  color-highlight v2.3.0
+  dark-lemon-material v1.1.5
+  debugger-for-chrome v4.11.3
+  dictionary-completion v0.8.2
+  dotenv v1.0.1
+  es7-react-js-snippets v2.3.0
+  gc-excelviewer v2.1.32
+  horizon-theme-vscode v1.8.1
+  html-snippets v0.2.1
+  JavaScriptSnippets v1.7.2
+  markdown-preview-enhanced v0.4.0
+  material-icon-theme v3.8.0
+  Material-theme v2.23.2
+  npm-intellisense v1.3.0
+  path-intellisense v1.4.2
+  prettier-vscode v1.9.0
+  rainbow-brackets v0.0.6
+  text-power-tools v1.11.1
+  theme-cobalt2 v2.1.6
+  theme-dracula v2.18.0
+  todo-tree v0.0.132
+  vsc-material-theme v2.9.0
+  vscode-apollo v1.6.9
+  vscode-deno v1.3.1
+  vscode-eslint v1.9.0
+  vscode-graphql v0.1.8
+  vscode-language-babel v0.0.22
+  vscode-npm-script v0.3.7
+  vscode-peacock v2.1.2
+  vscode-react-native v0.9.3
+  vscode-sqlite v0.6.0
+  vscode-styled-components v0.0.26
+  vscode-theme-1984 v0.0.28
+  vscode-theme-onedark v2.1.0
+  vscode-todo-highlight v1.0.4
+  vscode-wrap-console-log v1.7.2
+  vscodeintellicode v1.1.6
+--------------------
+Done.
