@@ -8,9 +8,14 @@ Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'leafgarland/typescript-vim'
 
-
+set tabstop=2
+set softtabstop=0 noexpandtab
+set shiftwidth=2
+set number
 set laststatus=2
 
 call plug#end()
 
 map <C-o> :NERDTreeToggle<CR>
+nmap <C-l> :! deno %<CR>
+set clipboard=unnamedplus

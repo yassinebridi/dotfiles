@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/yaslix/.oh-my-zsh"
+export ZSH="/home/yaslix/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+  # load a random theme each time oh-my-zsh is loaded, in which case,
+    # to know which specific one was loaded, run: echo $RANDOM_THEME
+    # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+    ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -17,7 +17,7 @@ ZSH_THEME="robbyrussell"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+  # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -39,20 +39,20 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+  # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+  # under VCS as dirty. This makes repository status check for large repositories
+    # much, much faster.
+    # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+  # stamp shown in the history command output.
+  # You can set one of the optional three formats:
+  # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+  # or set a custom format using the strftime function format specifications,
+  # see 'man strftime' for details.
+    # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -74,11 +74,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+  # if [[ -n $SSH_CONNECTION ]]; then
+    #   export EDITOR='vim'
+    # else
+      #   export EDITOR='mvim'
+      # fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -97,6 +97,18 @@ alias sau='sudo apt update'
 alias saug='sudo apt upgrade'
 alias sall='sudo apt update && sudo apt upgrade'
 alias arp='sudo arpon -i wlo1 -d'
-
+alias file_server="deno  --allow-net --allow-read \
+  https://deno.land/std/http/file_server.ts"
+alias gd='gatsby develop'
+alias yd='youtube-dl'
+alias sp='sudo -u postgres psql'
+alias pg='sudo -i -u postgres'
+alias pd='prisma deploy'
+alias pdf='prisma deploy --force'
+alias pdt='prisma delete'
+alias nrd='npm run dev'
+alias dcu='sudo docker-compose up -d'
+alias dcs='sudo docker-compose stop'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source "/home/yaslix/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
