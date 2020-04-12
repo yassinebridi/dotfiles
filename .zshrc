@@ -19,9 +19,9 @@ antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
 antigen apply
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+#HISTSIZE=10000
+#SAVEHIST=10000
+#HISTFILE=~/.cache/zsh/history
  
 # Basic auto/tab complete:
 autoload -U compinit
@@ -83,7 +83,6 @@ alias gd='gatsby develop'
 alias gdc='gatsby clean && gatsby develop'
 alias yd='yarn dev'
 alias sp='sudo -u postgres psql'
-alias pg='sudo -i -u postgres'
 alias pd='prisma deploy'
 alias pdf='prisma deploy --force'
 alias pdt='prisma delete'
@@ -95,10 +94,43 @@ alias open='explorer.exe .'
 alias szsh='source /home/yaslix/.zshrc'
 alias server='python -m SimpleHTTPServer 8080'
 alias node=nodejs
+alias ci=code-insiders
+alias yrd='yarn redwood dev'
+alias yr='yarn redwood'
+alias yrg='yarn redwood generate'
+alias yrs='yarn redwood generate scaffold'
+alias sps='service postgresql status'
+alias svim='sudo -E vim'
+
+ytp(){
+  yarn add -D "@types/"$@
+}
+
+ywa(){
+  yarn workspace $1 add $2
+}
+
+ywa(){
+  yarn workspace $1 add $2
+}
+
+openpg(){
+  sudo -u $1 psql
+}
+
+git-svn(){
+if [[ ! -z "$1" && ! -z "$2" ]]; then
+	echo "Starting clone/copy ..."
+	repo=$(echo $1 | sed 's/\/$\|.git$//')
+	svn export "$repo/$2"
+else	
+	echo "Use: git-svn <repository> <subdirectory>"
+fi  
+}
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 LS_COLORS='ow=01;36;40'
 export LS_COLORS
 export EDITOR=vim
 export PATH="$PATH:`yarn global bin`"
-export PATH=/home/yaslix/.local/bin:$PATH
+e
