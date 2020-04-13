@@ -1,38 +1,11 @@
-source /home/yaslix/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-
-# # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# workaround for https://github.com/zsh-users/antigen/issues/675
-THEME=robbyrussell
-antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
-
-# # Tell Antigen that you're done.
-antigen apply
-
-# History in cache directory:
-#HISTSIZE=10000
-#SAVEHIST=10000
-#HISTFILE=~/.cache/zsh/history
- 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)
-
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1      
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export ZSH="/home/yaslix/.oh-my-zsh"
+export EDITOR='vim'
+ZSH_THEME="robbyrussell"
+plugins=(nvm zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+autoload -U compinit && compinit
+source $ZSH/oh-my-zsh.sh
+export PATH="$PATH:`yarn global bin`"
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -40,39 +13,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' 'lfcd\n'
 
 # Aliases
 alias sau='sudo apt update'
@@ -118,19 +58,10 @@ openpg(){
   sudo -u $1 psql
 }
 
-git-svn(){
-if [[ ! -z "$1" && ! -z "$2" ]]; then
-	echo "Starting clone/copy ..."
-	repo=$(echo $1 | sed 's/\/$\|.git$//')
-	svn export "$repo/$2"
-else	
-	echo "Use: git-svn <repository> <subdirectory>"
-fi  
+gac(){
+  git add . && git commit -m $1
 }
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
-LS_COLORS='ow=01;36;40'
-export LS_COLORS
-export EDITOR=vim
-export PATH="$PATH:`yarn global bin`"
-e
+gacp(){
+  git add . && git commit -m $1 && git push origin master
+}
