@@ -1,1 +1,1 @@
-### all my dotfiles
+Some Settings for windows
